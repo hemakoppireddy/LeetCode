@@ -1,10 +1,10 @@
 class Solution {
 public:
     vector<int> countBits(int n) {
-        vector<int> ans(n + 1, 0); 
-        for (int i = 1; i <= n; i++) {
-            ans[i] = ans[i >> 1] + (i & 1); 
+        vector<int> res;
+        for (int i = 0; i <= n; i++) {
+            res.push_back(__builtin_popcount(i));
         }
-        return ans;
+        return res;
     }
 };
