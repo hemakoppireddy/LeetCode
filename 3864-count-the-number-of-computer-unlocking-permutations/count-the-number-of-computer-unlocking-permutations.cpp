@@ -12,7 +12,7 @@ const long long mod = 1000000007;
         long long res=1;
         if(flag){
             for(int i=2; i<n; i++) res =(res*i)%mod;
-            return res%mod;
+            return res;
         };
         return 0;
     }
