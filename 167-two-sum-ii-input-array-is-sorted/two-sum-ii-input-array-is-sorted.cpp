@@ -6,10 +6,10 @@ public:
         vector<int> res(2);
         while(l<=h) {
             int mid = (l+(h-l))/2;
-            if(numbers[mid]>target && numbers[mid]+numbers[l]>target) {
+            while(numbers[mid]>target && numbers[mid]+numbers[l]>target) {
                 h = mid-1;
             }
-            else {
+            // else {
                 int i=l, j=h;
                 while(i<j){
                     int sum = numbers[i] + numbers[j];
@@ -21,7 +21,7 @@ public:
                     else if(sum>target) j--;
                     else i++;
                 }
-            }
+            // }
         }
         return res;
     }
