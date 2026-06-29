@@ -8,11 +8,10 @@ public:
             if(nums[i]>0) pos.push_back(nums[i]);
             else neg.push_back(nums[i]);
         }
-        vector<int> res;
-        for(int i=0; i<n/2; i++) {
-            res.push_back(pos[i]);
-            res.push_back(neg[i]);
+        for(int i=0; i<n-1; i+=2) {
+            nums[i]=pos[i/2];
+            nums[i+1]=neg[i/2];
         }
-        return res;
+        return nums;
     }
 };
