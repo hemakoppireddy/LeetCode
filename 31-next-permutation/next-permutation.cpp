@@ -1,15 +1,5 @@
 class Solution {
 public:
-    void reverse(int start, int end, vector<int>& nums) {
-        int i=start, j=end-1;
-        while(i<j) {
-            int temp = nums[i];
-            nums[i] = nums[j];
-            nums[j] = temp;
-            i++;
-            j--;
-        }
-    }
     void nextPermutation(vector<int>& nums) {
         int n = nums.size();
         int idx=-1;
@@ -20,7 +10,7 @@ public:
             }
         }
         if(idx==-1) {
-            reverse(0, n,nums);
+            reverse(nums.begin(), nums.end());
             return;
         }
         for(int i=n-1; i>=0; i--) {
@@ -29,7 +19,7 @@ public:
                 break;
             }
         }
-        reverse(idx+1, n, nums);
+        reverse(nums.begin()+idx+1, nums.end());
 
     }
 };
