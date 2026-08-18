@@ -2,27 +2,24 @@ class Solution {
 public:
     vector<int> findClosestElements(vector<int>& arr, int k, int x) {
         int n = arr.size();
-        int count=0;
-        int left=0, right=0;
-        int mindiff = INT_MAX;
-        vector<int> res;
-        int leftIdx, rightIdx, diffsum=0;
+        int left=0, right=0, diff=0, count=0;
+        int leftIdx, rightIdx, mindiff=INT_MAX;
         while(left<n && right<n) {
             while(count<k && right<n) {
-                diffsum += (abs(x-arr[right]));
-                count++;
+                diff+=abs(x-arr[right]);
                 right++;
-
+                count++;
             }
-            if(diffsum<mindiff) {
-                mindiff=diffsum;
+            if(diff<mindiff) {
+                mindiff = diff;
                 leftIdx = left;
                 rightIdx = right;
             }
-            diffsum-=(abs(x-arr[left]));
+            diff-=abs(x-arr[left]);
             left++;
             count--;
         }
+        vector<int> res;
         for(int i=leftIdx; i<rightIdx; i++) {
             res.push_back(arr[i]);
         }
